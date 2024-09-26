@@ -9,5 +9,7 @@ rref_matrix, pivot_columns = A.rref()
 # Print the Row Echelon Form
 print("Row Echelon Form:")
 print(rref_matrix)
+print(A.det())
+
 
 # Print the pivot columns (the columns that contain pivots)
