@@ -1,13 +1,19 @@
-import sympy as sp
+import numpy as np
 
 # Define the matrix
-A = sp.Matrix([[1, -1, 1, 1, 6], [2, 0, -1, -1, 5], [2, -2, 0, 1, 4], [0, 1, 1, -1, 3]])
+B = np.array([[1, 3, 2, -1],
+              [1, 1, 1, 1],
+              [2, -2, 1, -1],
+              [1, -3, -1, 2]])
 
-# Get the row echelon form and pivot columns
-rref_matrix, pivot_columns = A.rref()
+# Calculate the inverse of the matrix
+def calculate_inverse(matrix):
+    try:
+        inv_matrix = np.linalg.inv(matrix)
+        return inv_matrix
+    except np.linalg.LinAlgError:
+        return None  # Inverse does not exist if matrix is singular
 
-# Print the Row Echelon Form
-print("Row Echelon Form:")
-print(rref_matrix)
-print(rref_matrix)
-
+# Get the inverse of the matrix
+inverse_matrix = calculate_inverse(B)
+print(inverse_matrix)
