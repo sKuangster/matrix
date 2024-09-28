@@ -1,19 +1,16 @@
 import numpy as np
+A = np.array([
+    [3.6, 6.6, 4],
+    [9, 12.1, 4],
+    [5.4, 11, 4]
+])
 
-# Define the matrix
-B = np.array([[1, 3, 2, -1],
-              [1, 1, 1, 1],
-              [2, -2, 1, -1],
-              [1, -3, -1, 2]])
+b = np.array([70, 137.5, 95])
 
-# Calculate the inverse of the matrix
-def calculate_inverse(matrix):
-    try:
-        inv_matrix = np.linalg.inv(matrix)
-        return inv_matrix
-    except np.linalg.LinAlgError:
-        return None  # Inverse does not exist if matrix is singular
+A_inv = np.linalg.inv(A)
 
-# Get the inverse of the matrix
-inverse_matrix = calculate_inverse(B)
-print(inverse_matrix)
+x = np.dot(A_inv, b)
+
+print("Number of solar plants (x1):", x[0])
+print("Number of wind plants (x2):", x[1])
+print("Number of waste plants (x3):", x[2])
